@@ -1,3 +1,3 @@
 # hyz_lib
  
-nu baga de seama, ceva absolut oribil
+A simple lib for hyz resources <3
