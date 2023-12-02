@@ -59,9 +59,9 @@ CreateThread(function()
                 if areas[lastArea] then 
                     areas[lastArea].functions.exit()
                     lastArea = nil 
-                    goto skip 
                 end 
             end 
+            goto skip 
         end 
 
         if areaName == lastArea then goto skip end 
@@ -77,3 +77,25 @@ exports("removeText",removeText)
 
 exports("addArea",addArea)
 exports("removeArea",removeArea)
+
+copyTable = function(orig)
+    local orig_type = type(orig)
+    if orig_type ~= 'table' then return orig end 
+
+    local copy = {}
+    for orig_key, orig_value in next, orig, nil do
+        copy[copyTable(orig_key)] = copyTable(orig_value)
+    end
+    setmetatable(copy, copyTable(getmetatable(orig)))
+    return copy
+end
+
+exports("copyTable",copyTable)
+
+notify = function(text)
+    SetNotificationTextEntry("STRING")
+    AddTextComponentString(text)
+    return DrawNotification(true, false)
+end 
+
+exports("notify",notify)

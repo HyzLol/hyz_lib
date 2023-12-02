@@ -8,3 +8,8 @@ client_scripts {
     "client.lua"
 }
 
+files {
+    "html/*"
+}
+
+ui_page "html/index.html"
