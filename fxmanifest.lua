@@ -4,6 +4,10 @@ game "gta5"
 author "Hyz"
 description "A lib made for hyz resources"
 
+lua54 "y"
+use_fxv2_oal "true"
+
+
 client_scripts {
     "client.lua"
 }
